@@ -1,0 +1,186 @@
+import math 
+#hello dont copy this
+name=input("What is your name:")
+print("Welcome "+name)
+print(""" 
+Which operation would you like to do: 
+1 - Addition 
+2 - subtraction 
+3 - multiplication 
+4 - division 
+5 - exponent 
+6 - factorial
+7 - tax
+8 - bmi
+9 - tips
+10 - temperature conversion
+11 - log
+12 - cos
+13 - sin
+14 - tan
+""") 
+o = input("") 
+if o == "1": 
+    x = int(input("What is your first number:")) 
+    y = int(input("What is your second number")) 
+ 
+    print(x + y)
+    print("Thank you for using the everything calculator!")
+    quit() 
+elif o == "2": 
+    x = int(input("What is your first number:")) 
+    y = int(input("What is your second number")) 
+    
+    print(x-y)
+    print("Thank you for using the everything calculator!")
+    quit() 
+elif o == "3": 
+    x = int(input("What is your first number:")) 
+    y = int(input("What is your second number")) 
+    print(x*y) 
+    print("Thank you for using the everything calculator!")
+    quit()
+elif o == "4": 
+    x = int(input("What is your first number:")) 
+    y = int(input("What is your second number")) 
+    print(x/y) 
+    print("Thank you for using the everything calculator!")
+    quit()
+elif o == "5": 
+    x = int(input("What is your first number:")) 
+    y = int(input("What is your second number")) 
+    print(x**y) 
+    print("Thank you for using the everything calculator!")
+    quit()
+elif o == "6": 
+    x = int(input("What is your first number:")) 
+    print(math.factorial(x)) 
+    print("Thank you for using the everything calculator!")
+    quit()
+elif o == "7":
+    price=float(input("What was the original price of your purchase:"))
+
+    if price<0 :
+        print("Invalid input")  
+        quit()
+    
+    taxrate=float(input("What is the tax rate of your area (the tax rate of texas is 0.0625):"))
+    if taxrate>15:
+      print("Invalid input")
+      quit()
+    if taxrate<0:
+      print("Invalid input")
+      quit()
+    print("The additional tax is:")
+    tax=price*taxrate
+    print(tax)
+    total=(tax+price)
+    print("Your total purchase is:")
+    print(total)
+    print("Thank you for using the everything calculator!")
+    quit()
+    
+
+
+elif o == "8":
+    h=float(input("Enter your height in meters: "))
+    w=float(input("Enter your Weight in Kg: "))
+     
+    BMI=w/(h*h)
+    print("BMI Calculated is: ",BMI)
+     
+    if(BMI>0):
+        if(BMI<=16):
+            print("You are very underweight")
+        elif(BMI<=18.5):
+            print("You are underweight")
+        elif(BMI<=25):
+            print("Congrats! You are Healthy")
+        elif(BMI<=30):
+            print("You are overweight")
+        else: 
+            print("You are very overweight")
+    else:
+        print("invalid input")
+        quit()
+    print("Thank you for using the everything calculator!")
+    quit()
+
+elif o == "9":
+    bill = float(input("What is the total bill? $"))
+    print ("So you need to pay $" + str(bill) + ".")
+    tipping_amount = int(input("What percentage would you like to tip? 5, 10, or 20% ? "))
+    print ("So, if you were to tip " + str(tipping_amount) + "...")
+    people = int(input("How many people are you splitting the cost with? "))
+    bill_with_tip = tipping_amount/100 * bill + bill
+    bill_per_person = bill_with_tip / people
+    final_amount = round(bill_per_person, 2)
+    print ("Each person should pay $" + str(final_amount) + " each.")
+    print("Thank you for using the everything calculator!")
+    quit()
+
+elif o == "10":
+   while True:
+    type_of_temperature = input('What do you want to convert:\n1. Fahrenheit to Celsius, Kelvin, Rankine and Reaumur\n2. Celsius to Fahrenheit, Kelvin, Rankine and Reaumur\n3. Kelvin to Fahrenheit, Celsius, Rankine and Reaumur\n4. Rankine to Fahrenheit, Celsius, Kelvin and Reaumur\n5. Reaumur to Fahrenheit, Celsius, Kelvin and Rankine').strip()
+    
+    temperature = float(input('Enter the temperature:'))
+    if type_of_temperature in ['1.', '1']:
+      f_to_c = (temperature - 32) * 0.5555555555555556
+      f_to_k = (temperature - 32) * 0.5555555555555556 + 273.15
+      f_to_r = temperature + 459.67
+      f_to_re = (temperature - 32) / 2.25
+      print(f'{temperature} in Fahrenheit = {f_to_c} in Celsius, {f_to_k} in Kelvin, {f_to_r} in Rankine, and {f_to_re} in Reaumur.')
+    if type_of_temperature in ['2', '2.']:
+      c_to_f = temperature * 1.8 + 32
+      c_to_k = temperature + 273.15
+      c_to_r = (temperature + 273.15) * 1.8
+      c_to_re = temperature * 0.8
+      print(f'{temperature} in Celsius = {c_to_f} in Fahrenheit, {c_to_k} in Kelvin, {c_to_r} in Rankine, and {c_to_re} in Reaumur.')
+    if type_of_temperature in ['3', '3.']:
+      k_to_f = temperature * 1.8 - 459.67
+      k_to_c = temperature - 273.15
+      k_to_r = temperature * 1.8
+      k_to_re = (temperature - 273.15) * 0.8
+      print(f'{temperature} in Kelvin = {k_to_f} in Fahrenheit, {k_to_c} in Celsius, {k_to_r} in Rankine, and {k_to_re} in Reaumur.')
+    if type_of_temperature in ['4', '4.']:
+      r_to_f = temperature - 459.67
+      r_to_c = (temperature - 491.67) * 0.5555555555555556
+      r_to_k = temperature * 0.5555555555555556
+      r_to_re = (temperature - 32 - 459.67) / 2.25
+      print(f'{temperature} in Rankine = {r_to_f} in Fahrenheit, {r_to_c} in Celsius, {r_to_k} in Kelvin, and {r_to_re} in Reaumur.')
+    if type_of_temperature in ['5', '5.']:
+      re_to_f = temperature * 2.25 + 32
+      re_to_c = temperature * 1.25
+      re_to_k = temperature * 1.25 + 273.15
+      re_to_r = temperature * 2.25 + 32 + 459.67
+      print(f'{temperature} in Reaumur = {re_to_f} in Fahrenheit, {re_to_c} in Celsius, {re_to_k} in Kelvin, and {re_to_r} in Rankine.')
+      continue_or_not = input('Would you like to convert something else?').strip().lower()
+    if continue_or_not in ["n", "no", "nope", "of course not"]:
+      break
+    print("Thank you for using the everything calculator!")
+   quit()
+
+elif o == "11":
+  x = int(input("What is your first number:")) 
+  print(math.log(x)) 
+  print("Thank you for using the everything calculator!")
+  quit()
+elif o == "12": 
+    x = int(input("What is your first number:")) 
+    print(math.cos(x))
+    print("Thank you for using the everything calculator!")
+    quit()
+elif o == "13": 
+    x = int(input("What is your first number:")) 
+    print(math.sin(x))
+    print("Thank you for using the everything calculator!")
+    quit()
+elif o == "14": 
+  x = int(input("What is your first number:")) 
+  y = int(input("What is your second number")) 
+  print(math.tan(x)) 
+  print("Thank you for using the everything calculator!")
+  quit()
+
+else :
+  print("invalid input")
